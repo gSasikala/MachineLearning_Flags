@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+form {
+    margin: auto;
+    width: 35%;
+}
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+</head>
+<body>
+<h1> Machine Learning Algorithm - flags dataset</h1>
+
+<form action="{{ url_for('main') }}" method="POST">
+     <fieldset>
+        <legend>Input values:</legend>
+         Language: <input name="language" type="number" required>
+        <br>
+         Area: <input name="area" type="number" required>
+        <br>
+         Population: <input name="population" type="number" required>
+        <br>
+         Landmass: <input name="landmass" type="number" required>
+        <br>
+         Zone: <input name="zone" type="number" required>
+        <br>
+        <input type="submit">
+    </fieldset>
+    <div class="result" align="center">
+    {% if result %}
+        {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }}
+        {% endfor %}
+        <br>
+        <br> Predicted religion:
+           <p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+    </div>
+</form>
+</body>
+</html>
