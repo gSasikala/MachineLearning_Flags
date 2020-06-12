@@ -16,16 +16,17 @@ def main():
             population = flask.request.form['population']
             landmass = flask.request.form['landmass']
             zone = flask.request.form['zone']
-            input_variables = pd.DataFrame([[language, area, population,landmass, zone]],
-                                           columns=['language', 'area', 'population','landmass','zone'],
+            input_variables = pd.DataFrame([[landmass, zone, area, population, language]],
+                                           columns=['landmass', 'zone', 'area', 'population', 'language'],
                                            dtype=float)
             prediction = model.predict(input_variables)[0]
             return flask.render_template('main.html',
-                                         original_input={'Language': language,
-                                                         'Area': area,
-                                                         'Population': population,
-                                                         'Landmass': landmass,
-                                                         'Zone' : zone
+                                         original_input={
+                                             'Landmass': landmass,
+                                             'Zone': zone,
+                                             'Area': area,
+                                            'Population': population,
+                                             'Language': language
                                                          },
                                          result=prediction,
                                          )

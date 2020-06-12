@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Flag Dataset - Predict Religion</title>
     <style>
 form {
     margin: auto;
@@ -10,7 +10,7 @@ form {
 }
 .result {
     margin: auto;
-    width: 35%;
+    width: 75%;
     border: 1px solid #ccc;
 }
 table, th, td {
@@ -19,8 +19,7 @@ table, th, td {
 </style>
 </head>
 <body>
-<h1> Machine Learning Algorithm - flags dataset</h1>
-
+<h3> Machine learning algorithm to predict religion [flags dataset]</h3>
 <form action="{{ url_for('main') }}" method="POST">
      <fieldset>
         <legend>Input values:</legend>
@@ -68,9 +67,12 @@ table, th, td {
 
 
          </table>
-<br/><br/>
+<br/>
         <input type="submit">
+         <br/>
     </fieldset>
+    <br/>
+    <br/>
     <div class="result" align="center">
     {% if result %}
         {% for variable, value in original_input.items() %}
