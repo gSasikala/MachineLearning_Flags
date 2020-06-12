@@ -13,6 +13,9 @@ form {
     width: 35%;
     border: 1px solid #ccc;
 }
+table, th, td {
+  border: 1px solid black;
+}
 </style>
 </head>
 <body>
@@ -21,22 +24,55 @@ form {
 <form action="{{ url_for('main') }}" method="POST">
      <fieldset>
         <legend>Input values:</legend>
-         Language: <input name="language" type="number" required>
-        <br>
-         Area: <input name="area" type="number" required>
-        <br>
-         Population: <input name="population" type="number" required>
-        <br>
-         Landmass: <input name="landmass" type="number" required>
-        <br>
-         Zone: <input name="zone" type="number" required>
-        <br>
+         <table>
+             <tr>
+                 <td>
+                     Language:
+                 </td>
+                 <td>
+                      <input name="language" type="number" required>
+                 </td>
+             </tr>
+             <tr>
+                 <td>
+                        Area:
+                 </td>
+                 <td>
+                         <input name="area" type="number" required>
+                 </td>
+             </tr>
+             <tr>
+                 <td>
+                     Population:
+                 </td>
+                 <td>
+                     <input name="population" type="number" required>
+                 </td>
+             </tr>
+             <tr>
+                 <td>
+                     Landmass:
+                 </td>
+                 <td>
+                     <input name="landmass" type="number" required>
+                 </td>
+             </tr>
+             <tr>
+                 <td>
+                     Zone:
+                 </td>
+                 <td>
+                     <input name="zone" type="number" required>
+                 </td>
+             </tr>
+         </table>
+<br/><br/>
         <input type="submit">
     </fieldset>
     <div class="result" align="center">
     {% if result %}
         {% for variable, value in original_input.items() %}
-            <b>{{ variable }}</b> : {{ value }}
+            <b>{{ variable }}</b> : {{ value }} <br/>
         {% endfor %}
         <br>
         <br> Predicted religion:
