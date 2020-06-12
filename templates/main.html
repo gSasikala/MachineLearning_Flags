@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <title>Flag Dataset - Predict Religion</title>
     <style>
+        
 form {
     margin: auto;
     width: 35%;
 }
+.centered {
+    text-align: center;
+    vertical-align: middle;
+        }
 .result {
     margin: auto;
     width: 75%;
@@ -19,7 +24,9 @@ table, th, td {
 </style>
 </head>
 <body>
+    <div class="centered">
 <h3> Machine learning algorithm to predict religion [flags dataset]</h3>
+    </div>
 <form action="{{ url_for('main') }}" method="POST">
      <fieldset>
         <legend>Input values:</legend>
